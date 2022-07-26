@@ -127,62 +127,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 709631001515427399, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
+    - target: {fileID: 690411028, guid: 5074471a74f9fc2428e879bbdd13bac8, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 709631001515427399, guid: 5074471a74f9fc2428e879bbdd13bac8,
+    - target: {fileID: 782325641316915721, guid: 5074471a74f9fc2428e879bbdd13bac8,
         type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 709631001515427399, guid: 5074471a74f9fc2428e879bbdd13bac8,
+    - target: {fileID: 782325642473447166, guid: 5074471a74f9fc2428e879bbdd13bac8,
         type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 709631001515427399, guid: 5074471a74f9fc2428e879bbdd13bac8,
+    - target: {fileID: 782325642909691806, guid: 5074471a74f9fc2428e879bbdd13bac8,
         type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709631001515427399, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1607660617027832304, guid: 5074471a74f9fc2428e879bbdd13bac8,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2375314656226489448, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375314656226489448, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375314656226489448, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375314656226489448, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375314656226489448, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2375314656226489454, guid: 5074471a74f9fc2428e879bbdd13bac8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151438116932147401, guid: 5074471a74f9fc2428e879bbdd13bac8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151438117350480958, guid: 5074471a74f9fc2428e879bbdd13bac8,
         type: 3}
       propertyPath: m_Mesh
       value: 
@@ -247,35 +226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaygroundRoot
       objectReference: {fileID: 0}
-    - target: {fileID: 3375224487742316495, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.183
-      objectReference: {fileID: 0}
     - target: {fileID: 6912995065038322770, guid: 5074471a74f9fc2428e879bbdd13bac8,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8727161710001782405, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8727161710001782405, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8727161710001782405, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8727161710001782405, guid: 5074471a74f9fc2428e879bbdd13bac8,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5074471a74f9fc2428e879bbdd13bac8, type: 3}
@@ -639,7 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf98dd1206224111a38765365e98e207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursorWhenFocusLocked: 1
   setCursorInvisibleWhenFocusLocked: 0
   maxGazeCollisionDistance: 10
   raycastLayerMasks:
@@ -650,6 +603,7 @@ MonoBehaviour:
   gazeTransform: {fileID: 0}
   minHeadVelocityThreshold: 0.5
   maxHeadVelocityThreshold: 2
+  useEyeTracking: 1
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
