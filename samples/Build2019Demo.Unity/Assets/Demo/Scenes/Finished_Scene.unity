@@ -338,6 +338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4941633254297953242, guid: aa311d939e452a045b897dcc7c9c36fb,
         type: 3}
+      propertyPath: defaultSpatialLocalizationInitializers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941633254297953242, guid: aa311d939e452a045b897dcc7c9c36fb,
+        type: 3}
       propertyPath: hideDevelopmentConsole
       value: 1
       objectReference: {fileID: 0}
