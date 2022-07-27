@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7822701636223139384}
   - component: {fileID: 5012277379684556187}
   - component: {fileID: 7584775395950471591}
-  - component: {fileID: 4690428744344046270}
   - component: {fileID: 4170170246728063919}
+  - component: {fileID: 5385075186686318686}
   m_Layer: 0
   m_Name: SpectatorViewSettings
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prioritizedInitializers:
-  - {fileID: 4690428744344046270}
+  - {fileID: 5385075186686318686}
 --- !u!114 &7584775395950471591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,24 +78,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableMobileRecordingService: 1
   overrideMobileRecordingServiceVisualPrefab: {fileID: 0}
---- !u!114 &4690428744344046270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8551012926961121577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31b38d11c2c8dc4487ec945d77e000c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  configuration:
-    AccountDomain: 
-    AccountId: ENTER_ACCOUNT_ID
-    AccountKey: ENTER_ACCOUNT_KEY
-    AccessToken: 
-    AuthenticationToken: 
 --- !u!114 &4170170246728063919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +93,17 @@ MonoBehaviour:
   overrideConnectionManagerPrefab: {fileID: 0}
   enableMobileNetworkConfigurationVisual: 1
   overrideMobileNetworkConfigurationVisualPrefab: {fileID: 0}
+--- !u!114 &5385075186686318686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551012926961121577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65428d5b29901f54f9201e5ca29bdb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugLogging: 1
+  markerType: 1
