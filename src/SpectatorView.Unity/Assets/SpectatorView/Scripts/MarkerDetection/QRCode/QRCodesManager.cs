@@ -22,6 +22,22 @@ using Microsoft.MixedReality.PhotoCapture;
 
 namespace Microsoft.MixedReality.SpectatorView
 {
+    public static class TaskExtensions
+    {
+        public static async Task AwaitWithTimeout<T>(this Task<T> task,
+               int timeout, Action<T> success, Action error)
+        {
+            if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
+            {
+                success?.Invoke(task.Result);
+            }
+            else
+            {
+                error?.Invoke();
+            }
+        }
+    }
+
     public class QRCodesManager : MonoBehaviour
     {
         [Tooltip("Determines if the QR codes scanner should be automatically started.")]
@@ -36,7 +52,7 @@ namespace Microsoft.MixedReality.SpectatorView
         private SortedDictionary<System.Guid, QRCode> qrCodesList = new SortedDictionary<System.Guid, QRCode>();
         private QRCodeWatcher qrWatcher;
         private object lockObj = new object();
-        private Task<QRCodeWatcherAccessStatus> startWatcherTask = null;
+        private Task startWatcherTask = null;
         private CancellationTokenSource startWatcherCTS = null;
         private Task stopTrackerTask = null;
 
@@ -202,7 +218,7 @@ namespace Microsoft.MixedReality.SpectatorView
             }
         }
 
-        public Task<QRCodeWatcherAccessStatus> StartQRWatchingAsync(CancellationToken cancellationToken = default)
+        public Task StartQRWatchingAsync(CancellationToken cancellationToken = default)
         {
             lock (lockObj)
             {
@@ -217,17 +233,28 @@ namespace Microsoft.MixedReality.SpectatorView
 
                 var hybridCTS = CancellationTokenSource.CreateLinkedTokenSource(startWatcherCTS.Token, cancellationToken);
                 DebugLog("Kicking off a new start tracker task");
-                return startWatcherTask = Task.Run(() => StartQRWatchingAsyncImpl(hybridCTS.Token), hybridCTS.Token);
+                return startWatcherTask = Task.Run(() => RequestAccess(hybridCTS.Token), hybridCTS.Token);
             }
         }
 
-        private async Task<QRCodeWatcherAccessStatus> StartQRWatchingAsyncImpl(CancellationToken token)
+        
+        private async Task RequestAccess(CancellationToken token)
         {
-            QRCodeWatcherAccessStatus accessStatus = QRCodeWatcherAccessStatus.DeniedBySystem;
+            DebugLog("Requesting QRCodeWatcher capability");
 
 #if WINDOWS_UWP
-            DebugLog("Requesting QRCodeWatcher capability");
-            accessStatus = await QRCodeWatcher.RequestAccessAsync();
+            var capabilityTask = QRCodeWatcher.RequestAccessAsync();
+            await capabilityTask.AwaitWithTimeout(4000, (x) => { StartQRWatchingAsyncImpl(token, x); }, async () => { await RequestAccess(token); });
+#endif
+
+        }
+
+        private void StartQRWatchingAsyncImpl(CancellationToken token, QRCodeWatcherAccessStatus x)
+        {
+            QRCodeWatcherAccessStatus accessStatus = x;
+            Debug.Log("SPK: QRCodeWatcherAccessStatus " + x.ToString());
+
+
             if (accessStatus != QRCodeWatcherAccessStatus.Allowed)
             {
                 DebugLog("Failed to obtain QRCodeWatcher capability. QR Codes will not be detected");
@@ -236,7 +263,6 @@ namespace Microsoft.MixedReality.SpectatorView
             {
                 DebugLog("QRCodeWatcher capability granted.");
             }
-#endif
 
             if (accessStatus == QRCodeWatcherAccessStatus.Allowed)
             {
@@ -258,7 +284,7 @@ namespace Microsoft.MixedReality.SpectatorView
                 }
             }
 
-            return await Task.FromResult(accessStatus);
+            return;
         }
 
         public Task StopQRWatchingAsync()

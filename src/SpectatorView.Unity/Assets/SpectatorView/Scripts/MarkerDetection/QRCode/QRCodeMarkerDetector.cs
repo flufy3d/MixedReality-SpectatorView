@@ -26,7 +26,7 @@ namespace Microsoft.MixedReality.SpectatorView
     {
         [Tooltip("Check to enable debug logging")]
         [SerializeField]
-        private bool debugLogging = false;
+        private bool debugLogging = true;
 
 #if ENABLE_QRCODES
         private QRCodesManager _qrCodesManager;
@@ -57,6 +57,8 @@ namespace Microsoft.MixedReality.SpectatorView
         /// <inheritdoc />
         public void StartDetecting()
         {
+            Debug.Log("SPK: QRCodeMarkerDetector StartDetecting!");
+
             enabled = true;
 
 #if ENABLE_QRCODES
@@ -138,12 +140,14 @@ namespace Microsoft.MixedReality.SpectatorView
 
         private async Task StartTrackingAsync()
         {
-            var result = await _qrCodesManager.StartQRWatchingAsync();
-            DebugLog($"Started qr watcher: {result.ToString()}");
+            Debug.Log("SPK: QRCodeMarkerDetector StartTrackingAsync!");
+            await _qrCodesManager.StartQRWatchingAsync();
+
         }
 
         private async Task StopTrackingAsync()
         {
+            Debug.Log("SPK: QRCodeMarkerDetector StopTrackingAsync!");
             await _qrCodesManager.StopQRWatchingAsync();
             DebugLog("Stopped qr watcher");
         }
